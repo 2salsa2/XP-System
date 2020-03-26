@@ -4,11 +4,10 @@ from dotenv import load_dotenv
 import discord
 from discord.ext import commands
 
-git config --global user.email "sksky217@gmail.com"
-git config --global user.name "2salsa2"
+
 
 load_dotenv()
-TOKEN = os.getenv('Njg2NzI3ODAzNjQyNTc2OTQx.XnvNHg.xhtb8tm5uRvcJrZyHoUx-SOTX28')
+TOKEN = os.getenv('DISCORD TOKEN')
 bot = commands.Bot(command_prefix='!')
 os.chdir(r"C:\Users\khali\github\XP-System")
 
@@ -24,9 +23,16 @@ async def say_hello(ctx):
 @clinet.event
 async def status (member):
     with open('discord.members.json',"r") as j:
-        members = json.load(j)
+        users = json.load(j)
 
-        
+        await update_data(users, member)
+
+        open("discord.member.json", "d") as j:
+            json.dump(users, j)
+            
+
+
+
 
 
 bot.run(TOKEN)
