@@ -27,9 +27,15 @@ async def status (member):
 
         await update_data(users, member)
 
-        open("discord.member.json", "d") as j:
+        with open("discord.member.json", "d") as j:
             json.dump(users, j)
-            
+
+@clinet.event
+async def message_p(message):
+    with open ("discord.member.json", "r") as j:
+        users = json.load(j)
+
+
 
 
 
