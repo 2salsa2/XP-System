@@ -42,6 +42,19 @@ async def message_p(message):
         with open("discord.members.json", "d") as j:
             json.dump(users, j)
 
+async def update_me(users, user):
+    if not user.id in users:
+        users[user.id] = {}
+        users[user.id]['xp'] = 0
+        users[user.id]['level'] = 1
+
+async def plus_xp():
+    #code here
+
+
+
+async def level_up():
+    #code here
 
 
 
