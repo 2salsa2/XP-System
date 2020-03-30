@@ -35,6 +35,12 @@ async def message_p(message):
     with open ("discord.member.json", "r") as j:
         users = json.load(j)
 
+        await update_data(users, message.author)
+        await add_xp(users, mmessage.author, 2)
+        await level_up(users, message.author, message.channel)
+
+        with open("discord.members.json", "d") as j:
+            json.dump(users, j)
 
 
 
