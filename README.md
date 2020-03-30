@@ -1,12 +1,12 @@
 # Project: Discord Bot
--[ ] For users to earn 2 XP points everytime they particpate in the chat.
--[ ] So, for every text that is sent is 2 XP points. 
--[ ]Everytime you level up, it gets harder and harder for you to level up again. 
--[ ]The chat telling you what level and XP you hva everytime you level up.
+-[] For users to earn 2 XP points everytime they particpate in the chat.
+- So, for every text that is sent is 2 XP points. 
+- Everytime you level up, it gets harder and harder for you to level up again. 
+- The chat telling you what level and XP you hva everytime you level up.
 
--A leaderboard that includes the top level users.
--A automatic(scheduled) leaderboard every week so annouce the top players.
--The ability to check you level.
+- A leaderboard that includes the top level users.
+- A automatic(scheduled) leaderboard every week so annouce the top players.
+- The ability to check you level.
 
 
 ### Planning:
