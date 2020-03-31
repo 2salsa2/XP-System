@@ -45,16 +45,20 @@ async def message_p(message):
 async def update_me(users, user):
     if not user.id in users:
         users[user.id] = {}
-        users[user.id]['xp'] = 0
+        users[user.id]['exp'] = 0
         users[user.id]['level'] = 1
 
-async def plus_xp():
-    #code here
+async def plus_xp(users, user, xp):
+    users[user.id]['exp'] += xp
+
+async def level_up(channel):
+    exp = users[user.id]["exp"]
+    start = users[user.id]['level']
+    end = int(exp ** (1/8))
 
 
 
-async def level_up():
-    #code here
+
 
 
 
