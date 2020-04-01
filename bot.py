@@ -51,17 +51,13 @@ async def update_me(users, user):
 async def plus_xp(users, user, xp):
     users[user.id]['exp'] += xp
 
-async def level_up(channel):
+async def level_up(users, user, channel):
     exp = users[user.id]["exp"]
     start = users[user.id]['level']
     end = int(exp ** (1/8))
 
-
-
-
-
-
-
-
-
+    if start < end:
+        await clinet.send_message(channel, "{} has level up congrats you are level {}".format(user.mention, end))
+        users[user.id]['level'] = end
+        
 bot.run(TOKEN)
