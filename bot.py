@@ -5,9 +5,8 @@ import discord
 from discord.ext import commands
 
 
-
 load_dotenv()
-TOKEN = os.getenv('DISCORD TOKEN')
+TOKEN = os.getenv("BOT_TOKEN")
 bot = commands.Bot(command_prefix='!')
 os.chdir(r"C:\Users\khali\github\XP-System")
 
@@ -59,5 +58,6 @@ async def level_up(users, user, channel):
     if start < end:
         await clinet.send_message(channel, "{} has level up congrats you are level {}".format(user.mention, end))
         users[user.id]['level'] = end
-        
+
+
 bot.run(TOKEN)
