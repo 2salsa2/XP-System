@@ -8,7 +8,7 @@ from discord.ext import commands
 # load_dotenv()
 TOKEN = os.getenv("BOT_TOKEN")
 bot = commands.Bot(command_prefix='!')
-os.chdir(r"C:\Users\khali\github\XP-System")
+
 
 @bot.listen()
 async def on_ready():
@@ -19,7 +19,7 @@ async def say_hello(ctx):
     await ctx.send(f"Hi {ctx.author.display_name}")
 
 
-@clinet.event
+@client.event
 async def status (member):
     with open('discord.members.json',"r") as j:
         users = json.load(j)
@@ -29,7 +29,7 @@ async def status (member):
         with open("discord.member.json", "d") as j:
             json.dump(users, j)
 
-@clinet.event
+@client.event
 async def message_p(message):
     with open ("discord.member.json", "r") as j:
         users = json.load(j)
