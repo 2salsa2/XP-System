@@ -5,7 +5,7 @@ import discord
 from discord.ext import commands
 
 
-load_dotenv()
+# load_dotenv()
 TOKEN = os.getenv("BOT_TOKEN")
 bot = commands.Bot(command_prefix='!')
 os.chdir(r"C:\Users\khali\github\XP-System")
