@@ -19,7 +19,7 @@ async def say_hello(ctx):
     await ctx.send(f"Hi {ctx.author.display_name}")
 
 
-@bot.listen(name="status", help="loads users")
+@bot.command(name="status", help="loads users")
 async def status (member):
     with open('discord.members.json',"r") as j:
         users = json.load(j)
@@ -27,7 +27,7 @@ async def status (member):
         with open("discord.member.json", "d") as j:
             json.dump(users, j)
 
-@bot.listen(name="message players", help="messages players amount on xp into discord channel")
+@bot.command(name="message players", help="messages players amount on xp into discord channel")
 async def message_p(message):
     with open ("discord.member.json", "r") as j:
         users = json.load(j)
