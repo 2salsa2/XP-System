@@ -5,21 +5,21 @@ import discord
 from discord.ext import commands
 
 
-# load_dotenv()
+load_dotenv()
 TOKEN = os.getenv("BOT_TOKEN")
-bot = commands.Bot(command_prefix='!')
+client = commands.Bot(command_prefix='!')
 
 
-@bot.listen()
+@client.listen()
 async def on_ready():
     print('Bot loaded and ready!')
 
-@bot.command(name="hi", help="Says hello")
+@client.command(name="hi", help="Says hello")
 async def say_hello(ctx):
     await ctx.send(f"Hi {ctx.author.display_name}")
 
 
-@bot.command(name="status", help="loads users")
+@client.event(name="status", help="loads users")
 async def status (member):
     with open('discord.members.json',"r") as j:
         users = json.load(j)
@@ -27,7 +27,7 @@ async def status (member):
         with open("discord.member.json", "d") as j:
             json.dump(users, j)
 
-@bot.command(name="message players", help="messages players amount on xp into discord channel")
+@client.event(name="message players", help="messages players amount on xp into discord channel")
 async def message_p(message):
     with open ("discord.member.json", "r") as j:
         users = json.load(j)
@@ -59,4 +59,4 @@ async def level_up(users, user, channel):
         users[user.id]['level'] = end
 
 
-bot.run(TOKEN)
+client.run(TOKEN)
