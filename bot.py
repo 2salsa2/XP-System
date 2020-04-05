@@ -19,22 +19,22 @@ async def say_hello(ctx):
     await ctx.send(f"Hi {ctx.author.display_name}")
 
 
-@client.event(name="status", help="loads users")
+@client.event
 async def status (member):
-    with open('discord.members.json',"r") as j:
+    with open('package.json',"r") as j:
         users = json.load(j)
         await update_data(users, member)
-        with open("discord.member.json", "d") as j:
+        with open("package.json", "d") as j:
             json.dump(users, j)
 
-@client.event(name="message players", help="messages players amount on xp into discord channel")
+@client.event
 async def message_p(message):
-    with open ("discord.member.json", "r") as j:
+    with open ("package.json", "r") as j:
         users = json.load(j)
         await update_data(users, message.author)
         await add_xp(users, message.author, 2)
         await level_up(users, message.author, message.channel)
-        with open("discord.members.json", "d") as j:
+        with open("package.json", "d") as j:
             json.dump(users, j)
 
 
