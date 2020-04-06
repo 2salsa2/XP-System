@@ -5,7 +5,7 @@ import discord
 from discord.ext import commands
 
 
-load_dotenv()
+#load_dotenv()
 TOKEN = os.getenv("BOT_TOKEN")
 client = commands.Bot(command_prefix='!')
 
@@ -23,18 +23,19 @@ async def say_hello(ctx):
 async def status (member):
     with open('package.json',"r") as j:
         users = json.load(j)
-        await update_data(users, member)
-        with open("package.json", "d") as j:
+        await update_me(users, member)
+        with open("package.json", "w") as j:
             json.dump(users, j)
 
 @client.event
 async def message_p(message):
     with open ("package.json", "r") as j:
         users = json.load(j)
-        await update_data(users, message.author)
-        await add_xp(users, message.author, 2)
+        await update_me(users, message.author)
+
+        await plus_xp(users, message.author, 2)
         await level_up(users, message.author, message.channel)
-        with open("package.json", "d") as j:
+        with open("package.json", "w") as j:
             json.dump(users, j)
 
 
@@ -55,7 +56,7 @@ async def level_up(users, user, channel):
     end = int(exp ** (1/8))
 
     if start < end:
-        await bot.send_message(channel, "{} has level up congrats you are level {}".format(user.mention, end))
+        await client.send_message(channel, "{} has level up congrats you are level {}".format(user.mention, end))
         users[user.id]['level'] = end
 
 
